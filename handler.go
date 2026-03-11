@@ -6,5 +6,5 @@ import (
 )
 
 func Handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "Hello, world") //nolint:errcheck
+	fmt.Fprintf(w, "Hello, %s", r.URL.Query().Get("name")) //nolint:errcheck
 }
