@@ -1,5 +1,5 @@
-// Package gospecsgreet
-package gospecsgreet
+// Package httpserver
+package httpserver
 
 import (
 	"io"

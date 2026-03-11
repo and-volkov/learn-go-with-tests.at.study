@@ -5,11 +5,11 @@ import (
 	"log"
 	"net/http"
 
-	gospecsgreet "github.com/and-volkov/learn-go-with-tests.at.study"
+	"github.com/and-volkov/learn-go-with-tests.at.study/adapters/httpserver"
 )
 
 func main() {
-	handler := http.HandlerFunc(gospecsgreet.Handler)
+	handler := http.HandlerFunc(httpserver.Handler)
 	if err := http.ListenAndServe(":8080", handler); err != nil {
 		log.Fatalf("failed to start server: %v", err)
 	}

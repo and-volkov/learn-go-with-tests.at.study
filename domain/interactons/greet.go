@@ -1,4 +1,5 @@
-package gospecsgreet
+// Package interactons
+package interactons
 
 import "fmt"
 

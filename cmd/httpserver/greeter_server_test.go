@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/alecthomas/assert/v2"
-	gospecsgreet "github.com/and-volkov/learn-go-with-tests.at.study"
+	"github.com/and-volkov/learn-go-with-tests.at.study/adapters/httpserver"
 	"github.com/and-volkov/learn-go-with-tests.at.study/specifications"
 	"github.com/testcontainers/testcontainers-go"
 	"github.com/testcontainers/testcontainers-go/wait"
@@ -38,6 +38,6 @@ func TestGreeterServer(t *testing.T) {
 	client := http.Client{
 		Timeout: 1 * time.Second,
 	}
-	driver := gospecsgreet.Driver{BaseURL: "http://localhost:8080", Client: &client}
+	driver := httpserver.Driver{BaseURL: "http://localhost:8080", Client: &client}
 	specifications.GreetSpecification(t, driver)
 }
