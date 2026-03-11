@@ -2,20 +2,19 @@ package main_test
 
 import (
 	"fmt"
-	"net/http"
 	"testing"
 
 	"github.com/and-volkov/learn-go-with-tests.at.study/adapters"
-	"github.com/and-volkov/learn-go-with-tests.at.study/adapters/httpserver"
+	"github.com/and-volkov/learn-go-with-tests.at.study/adapters/grpcserver"
 	"github.com/and-volkov/learn-go-with-tests.at.study/specifications"
 )
 
 func TestGreeterServer(t *testing.T) {
 	var (
-		port   = "8080"
-		driver = httpserver.Driver{BaseURL: fmt.Sprintf("http://localhost:%s", port), Client: http.DefaultClient}
+		port   = "50051"
+		driver = grpcserver.Driver{Addr: fmt.Sprintf("localhost:%s", port)}
 	)
 
-	adapters.StartDockerServer(t, port, "httpserver")
+	adapters.StartDockerServer(t, port, "grpcserver")
 	specifications.GreetSpecification(t, &driver)
 }
